@@ -52,9 +52,7 @@ function ApiGetData(){
             {data.map((item)=>(
                 <Card key={item.id} title={item.title}
                  body={item.body}/>
-                // console.log(item.title)
-
-                  
+                // console.log(item.title)             
                 
                 ))
                 }

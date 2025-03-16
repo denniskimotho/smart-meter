@@ -30,7 +30,7 @@ function Card({id,title,body}){
     return (
         <div className="card align-items-center" style={{ width: '30rem' }}>
 
-<h3 className="text-2xl font-bold mb-4">PostPaid Consumer Dashboard</h3>
+<h3 className="text-2xl font-bold mb-4">Dashboard</h3>
             {/* <img  src="../src/assets/costume.jpeg"/> */}
 
             {/* <div className="card--line">
