@@ -43,7 +43,7 @@ useEffect(() => {
     
     //   combinedMessage = "Consumed Unit: "+unit_consumed+" Tarrif: "+tariff+" Total Amount: "+billtopay
     
-      let days = Math.floor(Math.random() * 60) + 1;
+      setDays( Math.floor(Math.random() * 60) + 1);
       setConnection(days<30)
 
 
@@ -65,6 +65,7 @@ useEffect(() => {
             // setUnitAvailable(0)
             setConnection(false)
         }
+
     
         // console.log("Meter type "+mtr_type)
       
@@ -79,8 +80,6 @@ useEffect(() => {
 const calculateAmount=(amount)=>{
     
     let units = (amount/tariff)
-
-    // units = 1000
 
     return units
 }
@@ -101,13 +100,12 @@ const handleChange = (e) => {
       
       setUnitAvailable(newbal)
 
+      unit_available>0?setConnection(true):setConnection(false)
+
       setShow(false);
       // You can add your form submission logic here, like an API call
  
   };
-const recharge=()=>{
-
-}
 
     function showPayment(){
         setShow(true)
@@ -133,6 +131,8 @@ const recharge=()=>{
             <h4 className="card--charge">Subscriptional Type: <strong>{mtr_type}</strong></h4>  
             <h4 className="card--charge">Unit Consumed: <strong>{unit_consumed}</strong></h4>
             <h4 className="card--charge">Unit Bal: <strong>{(unit_available-unit_consumed).toFixed(2)}</strong></h4>
+            {/* <h4 className="card--charge">Days consumed: <strong>{(unit_available-unit_consumed).toFixed(2)}</strong></h4>
+            <h4 className="card--charge">Bil to pay: <strong>{(unit_consumed*days).toFixed(2)}</strong></h4> */}
 
             <h4 className="card--unit_cost"> Connection Status:{connect?<span style={{ color: "green" }}>Connected</span> : <span style={{ color: "red" }}>Disconnected</span>}</h4>
                            
@@ -169,7 +169,7 @@ const recharge=()=>{
                     <div class="col-sm-10">
                     <div class="input-group mb-3">
   <span class="input-group-text">KES</span>
-  <input type="number" step="1" class="form-control" onChange={handleChange}
+  <input type="number" step="1" required class="form-control" onChange={handleChange}
   id="inputAmount" aria-label="Amount (to the nearest dollar)"/>
                     </div>
                 </div>
