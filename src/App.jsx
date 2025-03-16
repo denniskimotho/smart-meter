@@ -14,10 +14,10 @@ const App = () => {
     <div>
         {/* <Navbar /> */}
         {/* <Main/> */}
-        {/* <Card/> */}
+        <Card/>
 
         {/* <MQTTClient/> */}
-        <ApiGetData/>
+        {/* <ApiGetData/> */}
         {/* <DataForm/> */}
         {/* <AddItem/> */}
       

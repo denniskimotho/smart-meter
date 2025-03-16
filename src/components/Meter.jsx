@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import MQTTClient from './MQTTClient';
 
-function Card({id,title,body}){
+function Meter({id,title,body,connection}){
 
     // console.log(id);
     const [thingsArray,setThingsArray]=useState(["Thigs 1","Thing 2"]);
@@ -28,9 +28,9 @@ function Card({id,title,body}){
 
     const thingsElements=thingsArray.map(thing =><p key={thing}>{thing}</p>);
     return (
-        <div className="card align-items-center" style={{ width: '30rem' }}>
+        <div className="card align-items-center" style={{ width: '18rem' }}>
 
-<h3 className="text-2xl font-bold mb-4">PostPaid Consumer Dashboard</h3>
+<h5 className="font-bold mb-2">{title}</h5>
             {/* <img  src="../src/assets/costume.jpeg"/> */}
 
             {/* <div className="card--line">
@@ -44,17 +44,21 @@ function Card({id,title,body}){
             <h4 className="card--line">More about us</h4>
             <p className="card--about">{body}</p>
 
+            */}
+
             <div className="card--line">
-            <h4 className="card--charge">From $136</h4>
-            <h4 className="card--unit_cost"> / person</h4>
-            </div> */}
-                <MQTTClient/>
-            {/* <div className="card--line">
-                <button onClick={isClicked}  >Click Me</button>
+            <h4 className="card--charge">
+                {body}
+            </h4>
+            {/* <h4 className="card--unit_cost"> / person</h4> */}
+            </div> 
+                
+             <div className="card--line">
+                <button  >{connection?"Disconnect ":"Connect "}</button>
             </div>
-            {thingsElements} */}
+            {/* {thingsElements} */} 
         </div>
     );
 }
 
-export default Card
+export default Meter
